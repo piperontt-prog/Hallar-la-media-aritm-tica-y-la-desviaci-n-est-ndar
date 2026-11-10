@@ -1,0 +1,20 @@
+## .gitignore para C# / .NET y PSP0
+
+# Carpetas de compilación
+bin/
+obj/
+TestResults/
+
+# Configuración de IDEs
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos temporales de SO
+[Tt]humbs.db
+[Ee]hthumbs.db
+[Dd]esktop.ini
+.DS_Store
