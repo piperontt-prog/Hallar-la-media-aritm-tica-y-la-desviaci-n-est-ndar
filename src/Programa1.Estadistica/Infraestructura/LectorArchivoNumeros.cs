@@ -1,3 +1,4 @@
+using System.Globalization;
 using Programa1.Estadistica.Dominio;
 
 namespace Programa1.Estadistica.Infraestructura;
@@ -45,7 +46,7 @@ public static class LectorArchivoNumeros
     {
         try
         {
-            return double.Parse(texto);
+            return double.Parse(texto, CultureInfo.CurrentCulture);
         }
         catch (FormatException)
         {

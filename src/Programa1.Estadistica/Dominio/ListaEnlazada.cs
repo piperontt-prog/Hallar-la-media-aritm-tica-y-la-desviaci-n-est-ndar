@@ -35,7 +35,7 @@ public sealed class ListaEnlazada : IEnumerable<double>
         }
 
         _ultimo = nuevo;
-        Cantidad++
+        Cantidad++;
     }
 
     /// <summary>

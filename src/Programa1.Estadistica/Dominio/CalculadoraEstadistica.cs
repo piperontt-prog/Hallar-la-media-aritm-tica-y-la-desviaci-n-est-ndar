@@ -14,13 +14,13 @@ public static class CalculadoraEstadistica
     {
         ArgumentNullException.ThrowIfNull(datos);
 
-        int suma = 0;
+        double suma = 0;
         foreach (var valor in datos)
         {
             suma += valor;
         }
 
-        return (double)suma / datos.Cantidad;
+        return suma / datos.Cantidad;
     }
 
     /// <summary>Calcula la desviación estándar.</summary>
@@ -37,7 +37,7 @@ public static class CalculadoraEstadistica
         double sumaCuadrados = 0;
         foreach (var valor in datos)
         {
-            sumaCuadradso += Math.Pow(valor - media, 2);
+            sumaCuadrados += Math.Pow(valor - media, 2);
         }
 
         return Math.Sqrt(sumaCuadrados / datos.Cantidad);
