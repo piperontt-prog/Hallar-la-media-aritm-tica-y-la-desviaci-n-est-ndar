@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 20px; font-weight: bold; fill: #1e293b; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; fill: #64748b; }
+      .phase-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .box-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #334155; }
+      .box-head { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; font-weight: bold; fill: #1e293b; }
+      .decision-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: bold; fill: #b45309; text-anchor: middle; }
+      .commit-text { font-family: "Cascadia Code", Consolas, monospace; font-size: 10px; fill: #0f766e; }
+      .arrow { stroke: #94a3b8; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .back-arrow { stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 4,4; fill: none; marker-end: url(#arrowhead-orange); }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f59e0b" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="1000" height="700" fill="#f8fafc" rx="8" />
+
+  <!-- Título principal -->
+  <text x="40" y="40" class="title">Flujo del Proceso PSP0 · Qué hacer, qué entregar y qué registrar</text>
+  <text x="40" y="62" class="subtitle">Personal Software Process (PSP0) aplicado al Programa 1 · Ciclo secuencial con puntos de control</text>
+
+  <!-- Fila de Encabezados de Columnas -->
+  <rect x="40" y="80" width="360" height="28" rx="4" fill="#e2e8f0" />
+  <text x="50" y="98" class="box-head">FASE / ACTIVIDAD</text>
+
+  <rect x="420" y="80" width="280" height="28" rx="4" fill="#e2e8f0" />
+  <text x="430" y="98" class="box-head">ENTREGABLE (COMMIT GIT)</text>
+
+  <rect x="720" y="80" width="240" height="28" rx="4" fill="#e2e8f0" />
+  <text x="730" y="98" class="box-head">REGISTRO PSP TRACKER</text>
+
+  <!-- FASE 1: Planeación -->
+  <g transform="translate(40, 120)" filter="url(#shadow)">
+    <rect width="360" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <rect width="360" height="24" rx="6" fill="#0284c7" />
+    <rect y="16" width="360" height="8" fill="#0284c7" />
+    <text x="12" y="17" class="phase-title">1. Planeación (PLAN)</text>
+    <text x="12" y="42" class="box-text">• Leer enunciado, resolver preguntas (P1-P4)</text>
+    <text x="12" y="58" class="box-text">• Redactar RF y RNF con criterios de aceptación; estimar</text>
+  </g>
+  <g transform="translate(420, 120)" filter="url(#shadow)">
+    <rect width="280" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="24" class="box-text">requisitos.md, estimacion.md</text>
+    <text x="12" y="42" class="box-text">Tiempo planeado: 300 min</text>
+    <text x="12" y="58" class="commit-text">git commit: "planeacion: ..."</text>
+  </g>
+  <g transform="translate(720, 120)" filter="url(#shadow)">
+    <rect width="240" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="26" class="box-text">► Cronómetro en Planificación</text>
+    <text x="12" y="46" class="box-text">Proyecto: PSP0 (Plan 300 min)</text>
+  </g>
+
+  <!-- FASE 2: Diseño -->
+  <g transform="translate(40, 210)" filter="url(#shadow)">
+    <rect width="360" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <rect width="360" height="24" rx="6" fill="#7c3aed" />
+    <rect y="16" width="360" height="8" fill="#7c3aed" />
+    <text x="12" y="17" class="phase-title">2. Diseño (DLD)</text>
+    <text x="12" y="42" class="box-text">• Pseudocódigo y traza de escritorio (detecta D1)</text>
+    <text x="12" y="58" class="box-text">• Diagramas: clases, arquitectura, flujo e interfaz</text>
+  </g>
+  <g transform="translate(420, 210)" filter="url(#shadow)">
+    <rect width="280" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="24" class="box-text">pseudocodigo.md, diseno.md, SVGs</text>
+    <text x="12" y="42" class="box-text">estandar_codificacion.md</text>
+    <text x="12" y="58" class="commit-text">git commit: "diseno: ..."</text>
+  </g>
+  <g transform="translate(720, 210)" filter="url(#shadow)">
+    <rect width="240" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="26" class="box-text">► Cronómetro en Diseño</text>
+    <text x="12" y="46" class="box-text">Defecto D1 (Tipo 80: Función)</text>
+  </g>
+
+  <!-- FASE 3: Código -->
+  <g transform="translate(40, 300)" filter="url(#shadow)">
+    <rect width="360" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <rect width="360" height="24" rx="6" fill="#d97706" />
+    <rect y="16" width="360" height="8" fill="#d97706" />
+    <text x="12" y="17" class="phase-title">3. Código (CODE)</text>
+    <text x="12" y="42" class="box-text">• Implementar en capas: Dominio, Infra, UI, App</text>
+    <text x="12" y="58" class="box-text">• Aplicar estándar. ¡No compilar antes de terminar!</text>
+  </g>
+  <g transform="translate(420, 300)" filter="url(#shadow)">
+    <rect width="280" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="24" class="box-text">src/Programa1.Estadistica/ (.NET 9)</text>
+    <text x="12" y="42" class="box-text">datos/ (archivos de prueba del kit)</text>
+    <text x="12" y="58" class="commit-text">git commit: "codigo: ..."</text>
+  </g>
+  <g transform="translate(720, 300)" filter="url(#shadow)">
+    <rect width="240" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="26" class="box-text">► Cronómetro en Código</text>
+    <text x="12" y="46" class="box-text">(Pausar en interrupciones)</text>
+  </g>
+
+  <!-- FASE 4: Compilación -->
+  <g transform="translate(40, 390)" filter="url(#shadow)">
+    <rect width="360" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <rect width="360" height="24" rx="6" fill="#dc2626" />
+    <rect y="16" width="360" height="8" fill="#dc2626" />
+    <text x="12" y="17" class="phase-title">4. Compilación (COMPILE)</text>
+    <text x="12" y="42" class="box-text">• Ejecutar dotnet build; leer cada error CSxxxx</text>
+    <text x="12" y="58" class="box-text">• Registrar defecto por error; corregir y repetir</text>
+  </g>
+  <g transform="translate(420, 390)" filter="url(#shadow)">
+    <rect width="280" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="24" class="box-text">0 errores y 0 advertencias</text>
+    <text x="12" y="42" class="box-text">Defect Log (D2-D5 corregidos)</text>
+    <text x="12" y="58" class="commit-text">git commit: "compilacion: ..."</text>
+  </g>
+  <g transform="translate(720, 390)" filter="url(#shadow)">
+    <rect width="240" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="26" class="box-text">► Cronómetro en Compilación</text>
+    <text x="12" y="46" class="box-text">Defectos D2, D3, D4, D5 (tipos 20/30/40)</text>
+  </g>
+
+  <!-- FASE 5: Pruebas -->
+  <g transform="translate(40, 480)" filter="url(#shadow)">
+    <rect width="360" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <rect width="360" height="24" rx="6" fill="#059669" />
+    <rect y="16" width="360" height="8" fill="#059669" />
+    <text x="12" y="17" class="phase-title">5. Pruebas (TEST)</text>
+    <text x="12" y="42" class="box-text">• Diseñar casos (CP-01 a CP-19) y automatizar xUnit</text>
+    <text x="12" y="58" class="box-text">• Ejecutar, registrar defectos (D6-D9), corregir</text>
+  </g>
+  <g transform="translate(420, 480)" filter="url(#shadow)">
+    <rect width="280" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="24" class="box-text">casos_prueba.md, informe_pruebas.md</text>
+    <text x="12" y="42" class="box-text">tests/ (20 pruebas pasando 100%)</text>
+    <text x="12" y="58" class="commit-text">git commit: "pruebas: ..."</text>
+  </g>
+  <g transform="translate(720, 480)" filter="url(#shadow)">
+    <rect width="240" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="26" class="box-text">► Cronómetro en Pruebas</text>
+    <text x="12" y="46" class="box-text">Defectos D6-D9 (Fix Ref en D8)</text>
+  </g>
+
+  <!-- FASE 6: Postmortem -->
+  <g transform="translate(40, 570)" filter="url(#shadow)">
+    <rect width="360" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <rect width="360" height="24" rx="6" fill="#475569" />
+    <rect y="16" width="360" height="8" fill="#475569" />
+    <text x="12" y="17" class="phase-title">6. Post-Mortem (PM)</text>
+    <text x="12" y="42" class="box-text">• Comparar Plan vs Real (300 vs 342 min)</text>
+    <text x="12" y="58" class="box-text">• Medir LOC (137 src), redactar PIP #1 y sincronizar</text>
+  </g>
+  <g transform="translate(420, 570)" filter="url(#shadow)">
+    <rect width="280" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="24" class="box-text">resumen_pps.md, pip.md</text>
+    <text x="12" y="42" class="box-text">Cumplimiento PSP Monitor: 100%</text>
+    <text x="12" y="58" class="commit-text">git commit: "postmortem: ..."</text>
+  </g>
+  <g transform="translate(720, 570)" filter="url(#shadow)">
+    <rect width="240" height="70" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="26" class="box-text">► Cronómetro en Post-Mortem</text>
+    <text x="12" y="46" class="box-text">Marcar Completado y Sincronizar</text>
+  </g>
+
+  <!-- Flechas verticales -->
+  <path d="M 220 190 L 220 210" class="arrow" />
+  <path d="M 220 280 L 220 300" class="arrow" />
+  <path d="M 220 370 L 220 390" class="arrow" />
+  <path d="M 220 460 L 220 480" class="arrow" />
+  <path d="M 220 550 L 220 570" class="arrow" />
+
+  <!-- Nota al pie -->
+  <text x="40" y="665" class="subtitle">Regla de Oro de PSP0: El tiempo se cronometra en el momento de ocurrencia y cada defecto se anota en el instante de hallazgo.</text>
+</svg>

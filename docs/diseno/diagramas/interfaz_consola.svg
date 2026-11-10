@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 20px; font-weight: bold; fill: #1e293b; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; fill: #64748b; }
+      .scenario-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: bold; fill: #1e293b; }
+      .term-cmd { font-family: "Cascadia Code", Consolas, monospace; font-size: 11px; fill: #4ade80; }
+      .term-head { font-family: "Cascadia Code", Consolas, monospace; font-size: 11px; fill: #38bdf8; }
+      .term-txt { font-family: "Cascadia Code", Consolas, monospace; font-size: 11px; fill: #e2e8f0; }
+      .term-prompt { font-family: "Cascadia Code", Consolas, monospace; font-size: 11px; fill: #fbbf24; }
+      .term-err { font-family: "Cascadia Code", Consolas, monospace; font-size: 11px; fill: #f87171; }
+      .term-exit { font-family: "Cascadia Code", Consolas, monospace; font-size: 11px; fill: #94a3b8; }
+      .rule-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: bold; fill: #0f172a; }
+      .rule-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #475569; }
+    </style>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <rect width="1000" height="780" fill="#f8fafc" rx="8" />
+
+  <text x="40" y="40" class="title">Diseño de la Interfaz de Consola · Cuatro Escenarios</text>
+  <text x="40" y="62" class="subtitle">Estandarización visual de salida en consola, alineación de columnas y control de errores</text>
+
+  <!-- Escenario A: Ruta como argumento -->
+  <g transform="translate(40, 85)" filter="url(#shadow)">
+    <text x="0" y="-8" class="scenario-title">A · Ruta como argumento (RF-07, RF-05)</text>
+    <rect width="600" height="135" rx="6" fill="#0f172a" />
+    <!-- Botones de ventana -->
+    <circle cx="16" cy="14" r="4" fill="#ef4444" />
+    <circle cx="28" cy="14" r="4" fill="#f59e0b" />
+    <circle cx="40" cy="14" r="4" fill="#10b981" />
+    <!-- Contenido -->
+    <text x="16" y="36" class="term-cmd">&gt; dotnet run --project src/Programa1.Estadistica -- datos/columna1_tamano_proxy.txt</text>
+    <text x="16" y="52" class="term-head">===================================================</text>
+    <text x="16" y="66" class="term-head"> PSP0 · Programa 1 — Media y desviación estándar</text>
+    <text x="16" y="80" class="term-head">===================================================</text>
+    <text x="16" y="96" class="term-txt">Archivo leído : datos/columna1_tamano_proxy.txt</text>
+    <text x="16" y="110" class="term-txt">Datos (n)     : 10</text>
+    <text x="16" y="124" class="term-txt">Media         : 550.60   |   Desv. estándar: 572.03</text>
+  </g>
+
+  <!-- Escenario B: Sin argumento (pide la ruta) -->
+  <g transform="translate(40, 255)" filter="url(#shadow)">
+    <text x="0" y="-8" class="scenario-title">B · Sin argumento: solicita interactivamente la ruta (RF-07)</text>
+    <rect width="600" height="145" rx="6" fill="#0f172a" />
+    <circle cx="16" cy="14" r="4" fill="#ef4444" />
+    <circle cx="28" cy="14" r="4" fill="#f59e0b" />
+    <circle cx="40" cy="14" r="4" fill="#10b981" />
+    <text x="16" y="36" class="term-cmd">&gt; dotnet run --project src/Programa1.Estadistica</text>
+    <text x="16" y="52" class="term-head">===================================================</text>
+    <text x="16" y="66" class="term-head"> PSP0 · Programa 1 — Media y desviación estándar</text>
+    <text x="16" y="80" class="term-head">===================================================</text>
+    <text x="16" y="96" class="term-prompt">Ruta del archivo de datos: datos/columna2_horas.txt</text>
+    <text x="16" y="112" class="term-txt">Archivo leído : datos/columna2_horas.txt</text>
+    <text x="16" y="126" class="term-txt">Datos (n)     : 10</text>
+    <text x="16" y="140" class="term-txt">Media         : 60.32    |   Desv. estándar: 62.26</text>
+  </g>
+
+  <!-- Escenario C: Dato inválido -->
+  <g transform="translate(40, 435)" filter="url(#shadow)">
+    <text x="0" y="-8" class="scenario-title">C · Dato inválido: indica número de línea y causa (RF-06, RNF-05)</text>
+    <rect width="600" height="125" rx="6" fill="#0f172a" />
+    <circle cx="16" cy="14" r="4" fill="#ef4444" />
+    <circle cx="28" cy="14" r="4" fill="#f59e0b" />
+    <circle cx="40" cy="14" r="4" fill="#10b981" />
+    <text x="16" y="36" class="term-cmd">&gt; dotnet run --project src/Programa1.Estadistica -- datos/malo.txt</text>
+    <text x="16" y="52" class="term-head">===================================================</text>
+    <text x="16" y="66" class="term-head"> PSP0 · Programa 1 — Media y desviación estándar</text>
+    <text x="16" y="80" class="term-head">===================================================</text>
+    <text x="16" y="100" class="term-err">ERROR: Línea 3: «abc» no es un número real. Use punto decimal (ej. 15.0).</text>
+    <text x="16" y="116" class="term-exit">&gt; echo $LASTEXITCODE  →  1</text>
+  </g>
+
+  <!-- Escenario D: Un solo dato -->
+  <g transform="translate(40, 595)" filter="url(#shadow)">
+    <text x="0" y="-8" class="scenario-title">D · Un solo dato: desviación estándar no definida (RF-04, RF-06)</text>
+    <rect width="600" height="135" rx="6" fill="#0f172a" />
+    <circle cx="16" cy="14" r="4" fill="#ef4444" />
+    <circle cx="28" cy="14" r="4" fill="#f59e0b" />
+    <circle cx="40" cy="14" r="4" fill="#10b981" />
+    <text x="16" y="36" class="term-cmd">&gt; dotnet run --project src/Programa1.Estadistica -- datos/uno.txt</text>
+    <text x="16" y="52" class="term-head">===================================================</text>
+    <text x="16" y="66" class="term-head"> PSP0 · Programa 1 — Media y desviación estándar</text>
+    <text x="16" y="80" class="term-head">===================================================</text>
+    <text x="16" y="96" class="term-txt">Archivo leído : datos/uno.txt</text>
+    <text x="16" y="110" class="term-txt">Datos (n)     : 1</text>
+    <text x="16" y="124" class="term-txt">Media         : 42.50</text>
+    <text x="16" y="138" class="term-txt">Desv. estándar: no definida (se necesitan al menos 2 datos)</text>
+  </g>
+
+  <!-- Reglas de Diseño de la Interfaz -->
+  <g transform="translate(670, 85)" filter="url(#shadow)">
+    <rect width="290" height="645" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+    <rect width="290" height="32" rx="6" fill="#f1f5f9" />
+    <rect y="24" width="290" height="8" fill="#f1f5f9" />
+    <text x="16" y="21" class="rule-title">Reglas de la Interfaz</text>
+
+    <!-- 1 -->
+    <circle cx="26" cy="58" r="10" fill="#0284c7" />
+    <text x="26" y="62" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="44" y="55" class="rule-title">Encabezado uniforme</text>
+    <text x="44" y="70" class="rule-desc">Tres líneas fijas de separación que identifican el programa y proceso.</text>
+
+    <!-- 2 -->
+    <circle cx="26" cy="120" r="10" fill="#0284c7" />
+    <text x="26" y="124" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="44" y="117" class="rule-title">Alineación a 14 caracteres</text>
+    <text x="44" y="132" class="rule-desc">Etiquetas con espaciado uniforme para mantener los valores alineados.</text>
+
+    <!-- 3 -->
+    <circle cx="26" cy="182" r="10" fill="#0284c7" />
+    <text x="26" y="186" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="44" y="179" class="rule-title">Formato numérico F2</text>
+    <text x="44" y="194" class="rule-desc">Siempre 2 decimales con punto decimal usando CultureInfo invariante.</text>
+
+    <!-- 4 -->
+    <circle cx="26" cy="244" r="10" fill="#0284c7" />
+    <text x="26" y="248" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="44" y="241" class="rule-title">Entrada interactiva limpia</text>
+    <text x="44" y="256" class="rule-desc">Solicita la ruta amigablemente si no se proporcionan argumentos CLI.</text>
+
+    <!-- 5 -->
+    <circle cx="26" cy="306" r="10" fill="#0284c7" />
+    <text x="26" y="310" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="44" y="303" class="rule-title">Mensajes de error directos</text>
+    <text x="44" y="318" class="rule-desc">Prefijo ERROR:, causa clara, acción sugerida y código de salida 1.</text>
+
+    <!-- 6 -->
+    <circle cx="26" cy="368" r="10" fill="#0284c7" />
+    <text x="26" y="372" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">6</text>
+    <text x="44" y="365" class="rule-title">Sin «NaN» ni trazas de error</text>
+    <text x="44" y="380" class="rule-desc">Nunca se exponen excepciones de .NET ni cálculos indefinidos al usuario.</text>
+  </g>
+</svg>

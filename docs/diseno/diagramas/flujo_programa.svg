@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 860" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 20px; font-weight: bold; fill: #1e293b; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; fill: #64748b; }
+      .step-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #1e293b; text-anchor: middle; }
+      .step-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #475569; text-anchor: middle; }
+      .decision-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; font-weight: bold; fill: #b45309; text-anchor: middle; }
+      .tag-rf { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; font-weight: bold; fill: #0369a1; }
+      .error-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #991b1b; text-anchor: middle; }
+      .arrow { stroke: #64748b; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-err { stroke: #ef4444; stroke-width: 2; fill: none; marker-end: url(#arrowhead-red); }
+      .arrow-lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #64748b; font-style: italic; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ef4444" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <rect width="900" height="860" fill="#f8fafc" rx="8" />
+
+  <text x="40" y="40" class="title">Diagrama de Actividad · Flujo del Programa y Caminos de Error</text>
+  <text x="40" y="62" class="subtitle">Lógica de orquestación, validaciones con número de línea y puntos de decisión</text>
+
+  <!-- Inicio -->
+  <circle cx="450" cy="95" r="14" fill="#1e293b" />
+  <path d="M 450 109 L 450 135" class="arrow" />
+
+  <!-- Mostrar Encabezado -->
+  <g transform="translate(350, 135)" filter="url(#shadow)">
+    <rect width="200" height="40" rx="20" fill="#e0f2fe" stroke="#38bdf8" />
+    <text x="100" y="24" class="step-text">Mostrar encabezado</text>
+  </g>
+  <path d="M 450 175 L 450 205" class="arrow" />
+
+  <!-- Rombo: ¿args? -->
+  <g transform="translate(450, 235)">
+    <polygon points="0 -30, 60 0, 0 30, -60 0" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="0" y="4" class="decision-text">¿args?</text>
+  </g>
+
+  <!-- No args -> Pedir ruta -->
+  <path d="M 390 235 L 250 235 L 250 280" class="arrow" />
+  <text x="310" y="225" class="arrow-lbl">no</text>
+  <g transform="translate(150, 280)" filter="url(#shadow)">
+    <rect width="200" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" />
+    <text x="100" y="22" class="step-text">Pedir ruta por consola</text>
+    <text x="100" y="36" class="step-desc">(RF-07 interactivo)</text>
+  </g>
+  <path d="M 250 324 L 250 360 L 410 360" class="arrow" />
+
+  <!-- Si args -> ruta <- args[0] -->
+  <path d="M 510 235 L 650 235 L 650 280" class="arrow" />
+  <text x="570" y="225" class="arrow-lbl">sí</text>
+  <g transform="translate(550, 280)" filter="url(#shadow)">
+    <rect width="200" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" />
+    <text x="100" y="22" class="step-text">ruta ← args[0]</text>
+    <text x="100" y="36" class="step-desc">(RF-07 argumento)</text>
+  </g>
+  <path d="M 650 324 L 650 360 L 490 360" class="arrow" />
+
+  <!-- Abrir archivo -->
+  <path d="M 450 360 L 450 380" class="arrow" />
+  <g transform="translate(350, 380)" filter="url(#shadow)">
+    <rect width="200" height="40" rx="8" fill="#f3e8ff" stroke="#c084fc" />
+    <text x="100" y="24" class="step-text">Abrir archivo</text>
+  </g>
+  <path d="M 450 420 L 450 445" class="arrow" />
+
+  <!-- Rombo: ¿existe? -->
+  <g transform="translate(450, 475)">
+    <polygon points="0 -30, 60 0, 0 30, -60 0" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="0" y="4" class="decision-text">¿existe?</text>
+  </g>
+
+  <!-- Error archivo inexistente -->
+  <path d="M 510 475 L 620 475" class="arrow-err" />
+  <text x="550" y="465" class="arrow-lbl">no</text>
+  <g transform="translate(620, 455)" filter="url(#shadow)">
+    <rect width="240" height="44" rx="6" fill="#fee2e2" stroke="#f87171" />
+    <text x="120" y="20" class="error-text">ERROR: No se encontró el archivo</text>
+    <text x="120" y="35" class="step-desc">salir con código 1 (RF-06)</text>
+  </g>
+
+  <!-- Si existe -> Procesar líneas -->
+  <path d="M 450 505 L 450 535" class="arrow" />
+  <text x="460" y="522" class="arrow-lbl">sí</text>
+  <g transform="translate(300, 535)" filter="url(#shadow)">
+    <rect width="300" height="48" rx="8" fill="#f3e8ff" stroke="#c084fc" />
+    <text x="150" y="22" class="step-text">Por cada línea no vacía:</text>
+    <text x="150" y="38" class="step-desc">convertir (invariante) y Agregar (RF-01, RF-02)</text>
+  </g>
+  <path d="M 450 583 L 450 610" class="arrow" />
+
+  <!-- Rombo: ¿todas válidas? -->
+  <g transform="translate(450, 640)">
+    <polygon points="0 -30, 70 0, 0 30, -70 0" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="0" y="4" class="decision-text">¿todas válidas?</text>
+  </g>
+
+  <!-- Error dato inválido o vacío -->
+  <path d="M 520 640 L 620 640" class="arrow-err" />
+  <text x="560" y="630" class="arrow-lbl">no</text>
+  <g transform="translate(620, 618)" filter="url(#shadow)">
+    <rect width="240" height="48" rx="6" fill="#fee2e2" stroke="#f87171" />
+    <text x="120" y="20" class="error-text">ERROR: Línea k: «x» inválida</text>
+    <text x="120" y="36" class="step-desc">o «no contiene datos» · salir con 1</text>
+  </g>
+
+  <!-- Si válidas -> Calcular media -->
+  <path d="M 450 670 L 450 700" class="arrow" />
+  <text x="460" y="688" class="arrow-lbl">sí</text>
+  <g transform="translate(340, 700)" filter="url(#shadow)">
+    <rect width="220" height="40" rx="8" fill="#dcfce7" stroke="#4ade80" />
+    <text x="110" y="24" class="step-text">media ← Σx / n (RF-03)</text>
+  </g>
+  <path d="M 450 740 L 450 765" class="arrow" />
+
+  <!-- Rombo: ¿n >= 2? -->
+  <g transform="translate(450, 795)">
+    <polygon points="0 -30, 60 0, 0 30, -60 0" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="0" y="4" class="decision-text">¿n ≥ 2?</text>
+  </g>
+
+  <!-- no -> Desv no definida -->
+  <path d="M 390 795 L 260 795" class="arrow" />
+  <text x="330" y="785" class="arrow-lbl">no</text>
+  <g transform="translate(60, 775)" filter="url(#shadow)">
+    <rect width="200" height="40" rx="6" fill="#e0f2fe" stroke="#38bdf8" />
+    <text x="100" y="24" class="step-desc">Desv: «no definida» (n &lt; 2)</text>
+  </g>
+
+  <!-- sí -> Calcular desv muestral -->
+  <path d="M 510 795 L 620 795" class="arrow" />
+  <text x="560" y="785" class="arrow-lbl">sí</text>
+  <g transform="translate(620, 775)" filter="url(#shadow)">
+    <rect width="240" height="40" rx="6" fill="#dcfce7" stroke="#4ade80" />
+    <text x="120" y="24" class="step-desc">σ = √(Σ(x - x̄)² / (n - 1))</text>
+  </g>
+
+  <!-- Mostrar resultado y fin -->
+  <path d="M 160 815 L 160 840 L 420 840" class="arrow" />
+  <path d="M 740 815 L 740 840 L 480 840" class="arrow" />
+  <circle cx="450" cy="840" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2" />
+  <circle cx="450" cy="840" r="7" fill="#1e293b" />
+</svg>

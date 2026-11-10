@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 540" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 20px; font-weight: bold; fill: #1e293b; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; fill: #64748b; }
+      .layer-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px; font-weight: bold; fill: #ffffff; }
+      .layer-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #334155; }
+      .layer-sub { font-family: "Cascadia Code", Consolas, monospace; font-size: 11px; fill: #64748b; }
+      .arrow { stroke: #475569; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .dashed-arrow { stroke: #475569; stroke-width: 1.5; stroke-dasharray: 4,4; fill: none; marker-end: url(#arrowhead); }
+      .rules-head { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; font-weight: bold; fill: #1e293b; }
+      .rules-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #475569; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <rect width="950" height="540" fill="#f8fafc" rx="8" />
+
+  <text x="40" y="40" class="title">Arquitectura en Capas · PSP0 Programa 1</text>
+  <text x="40" y="62" class="subtitle">Desacoplamiento limpio, inversión de dependencias y aislamiento total del Dominio</text>
+
+  <!-- Usuario Actor -->
+  <g transform="translate(60, 150)">
+    <circle cx="20" cy="20" r="14" fill="#ffffff" stroke="#334155" stroke-width="2" />
+    <line x1="20" y1="34" x2="20" y2="70" stroke="#334155" stroke-width="2" />
+    <line x1="0" y1="46" x2="40" y2="46" stroke="#334155" stroke-width="2" />
+    <line x1="20" y1="70" x2="5" y2="95" stroke="#334155" stroke-width="2" />
+    <line x1="20" y1="70" x2="35" y2="95" stroke="#334155" stroke-width="2" />
+    <text x="20" y="115" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Usuario</text>
+  </g>
+
+  <!-- Flecha usuario -> Presentación -->
+  <path d="M 105 180 L 175 145" class="arrow" />
+  <text x="130" y="155" class="rules-text">ruta / args</text>
+
+  <!-- CAPA 1: Presentación -->
+  <g transform="translate(180, 100)" filter="url(#shadow)">
+    <rect width="450" height="75" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+    <rect width="450" height="26" rx="6" fill="#0284c7" />
+    <rect y="18" width="450" height="8" fill="#0284c7" />
+    <text x="16" y="18" class="layer-title">Presentación · Presentacion/</text>
+    <text x="16" y="45" class="layer-desc">ConsolaUI: Pide la ruta del archivo, muestra n, media y desviación en formato F2 o errores amigables.</text>
+    <text x="16" y="62" class="layer-sub">Inyecta TextReader y TextWriter para pruebas automatizadas</text>
+  </g>
+
+  <!-- Flecha 1 -> 2 -->
+  <path d="M 400 175 L 400 200" class="arrow" />
+
+  <!-- CAPA 2: Aplicación -->
+  <g transform="translate(180, 200)" filter="url(#shadow)">
+    <rect width="450" height="75" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+    <rect width="450" height="26" rx="6" fill="#b45309" />
+    <rect y="18" width="450" height="8" fill="#b45309" />
+    <text x="16" y="18" class="layer-title">Aplicación · Aplicacion.cs</text>
+    <text x="16" y="45" class="layer-desc">Aplicacion.Ejecutar(args, entrada, salida) → 0 | 1</text>
+    <text x="16" y="62" class="layer-sub">Orquesta el flujo y traduce excepciones en códigos de retorno 0 o 1</text>
+  </g>
+
+  <!-- Flecha 2 -> 3 -->
+  <path d="M 400 275 L 400 300" class="arrow" />
+
+  <!-- CAPA 3: Infraestructura -->
+  <g transform="translate(180, 300)" filter="url(#shadow)">
+    <rect width="450" height="75" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+    <rect width="450" height="26" rx="6" fill="#7e22ce" />
+    <rect y="18" width="450" height="8" fill="#7e22ce" />
+    <text x="16" y="18" class="layer-title">Infraestructura · Infraestructura/</text>
+    <text x="16" y="45" class="layer-desc">LectorArchivoNumeros, DatosInvalidosException</text>
+    <text x="16" y="62" class="layer-sub">Lectura streaming de archivos y parsing con CultureInfo.InvariantCulture (RNF-02)</text>
+  </g>
+
+  <!-- Archivo de datos -->
+  <g transform="translate(50, 310)">
+    <rect width="65" height="75" rx="4" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+    <polygon points="50 0, 65 15, 50 15" fill="#e2e8f0" stroke="#64748b" stroke-width="1" />
+    <text x="32" y="40" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">datos/</text>
+    <text x="32" y="55" font-family="monospace" font-size="9" fill="#64748b" text-anchor="middle">*.txt</text>
+  </g>
+  <path d="M 180 340 L 125 340" class="arrow" />
+  <text x="145" y="332" class="rules-text">lee</text>
+
+  <!-- Flecha 3 -> 4 y Aplicacion -> Dominio -->
+  <path d="M 400 375 L 400 400" class="arrow" />
+  <path d="M 630 240 Q 670 240 670 330 T 630 435" class="dashed-arrow" />
+
+  <!-- CAPA 4: Dominio -->
+  <g transform="translate(180, 400)" filter="url(#shadow)">
+    <rect width="450" height="95" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+    <rect width="450" height="26" rx="6" fill="#15803d" />
+    <rect y="18" width="450" height="8" fill="#15803d" />
+    <text x="16" y="18" class="layer-title">Dominio · Dominio/ (Puro, sin consola ni archivos)</text>
+    <text x="16" y="45" class="layer-desc">ListaEnlazada, Nodo, CalculadoraEstadistica, ResultadoEstadistico</text>
+    <text x="16" y="65" class="layer-sub">Estructura enlazada propia con inserción O(1) e IEnumerable&lt;double&gt;</text>
+    <text x="16" y="82" class="layer-sub">Fórmulas: Media x̄ = Σx / n  |  Desviación muestral σ = √(Σ(x - x̄)² / (n - 1))</text>
+  </g>
+
+  <!-- Panel de Reglas Arquitectónicas -->
+  <g transform="translate(680, 100)" filter="url(#shadow)">
+    <rect width="230" height="395" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+    <rect width="230" height="30" rx="6" fill="#f1f5f9" />
+    <rect y="22" width="230" height="8" fill="#f1f5f9" />
+    <text x="16" y="20" class="rules-head">Reglas Arquitectónicas</text>
+
+    <text x="16" y="55" class="rules-text">• Las dependencias apuntan</text>
+    <text x="16" y="70" class="rules-text">  hacia adentro (al Dominio).</text>
+
+    <text x="16" y="100" class="rules-text">• El Dominio no depende de</text>
+    <text x="16" y="115" class="rules-text">  ninguna otra capa ni de I/O.</text>
+
+    <text x="16" y="145" class="rules-text">• Consola desacoplada con</text>
+    <text x="16" y="160" class="rules-text">  TextReader / TextWriter para</text>
+    <text x="16" y="175" class="rules-text">  pruebas unitarias limpias.</text>
+
+    <text x="16" y="205" class="rules-text">• Sin Base de Datos:</text>
+    <text x="16" y="220" class="rules-text">  El problema pide leer archivos</text>
+    <text x="16" y="235" class="rules-text">  y listas enlazadas en memoria.</text>
+
+    <text x="16" y="265" class="rules-text">• Reutilización:</text>
+    <text x="16" y="280" class="rules-text">  El Dominio servirá como base</text>
+    <text x="16" y="295" class="rules-text">  para los Programas 2, 3 y 4.</text>
+
+    <line x1="16" y1="320" x2="214" y2="320" stroke="#e2e8f0" />
+    <text x="16" y="345" font-family="monospace" font-size="10" fill="#0284c7">Program.cs →</text>
+    <text x="16" y="360" font-family="monospace" font-size="10" fill="#334155">Aplicacion.Ejecutar(</text>
+    <text x="16" y="375" font-family="monospace" font-size="10" fill="#334155">  args, Console.In, Out)</text>
+  </g>
+</svg>
