@@ -1,0 +1,35 @@
+$ dotnet test
+  Failed CalculadoraEstadisticaTests.CP01_Tabla1Columna1_MediaYDesviacionEsperadas
+   Assert.Equal() Failure: Values differ
+   Expected: 572.03
+   Actual:   542.67 (rounded from 542.6723136479325)
+  Failed CalculadoraEstadisticaTests.CP02_Tabla1Columna2_MediaYDesviacionEsperadas
+   Assert.Equal() Failure: Values differ
+   Expected: 62.26
+   Actual:   59.06 (rounded from 59.0610667021855)
+  Failed CalculadoraEstadisticaTests.CP03_Tabla3Ejemplo_MediaYDesviacionEsperadas
+   Assert.Equal() Failure: Values differ
+   Expected: 625.63
+   Actual:   593.53 (rounded from 593.52850816115)
+  Failed CalculadoraEstadisticaTests.CP04_ListaVacia_LanzaDatosInsuficientesException
+   Assert.Throws() Failure: No exception was thrown
+  Failed CalculadoraEstadisticaTests.CP07_ValoresNegativosYPositivos_CalculoCorrecto
+   Assert.Equal() Failure: Values differ
+   Expected: 2.50
+   Actual:   2.04 (rounded from 2.0412414523193)
+  Failed LectorArchivoNumerosTests.CP11_LeerLineas_SoloLineasEnBlanco_LanzaDatosInvalidosException
+   Assert.Throws() Failure: No exception was thrown
+  Failed LectorArchivoNumerosTests.CP13_LeerLineas_CulturaEsCO_UsaPuntoDecimal
+   Assert.Equal() Failure: Collections differ
+   Expected: [15, 6,5]
+   Actual:   [150, 65]
+  Failed AplicacionTests.CP15_ArgumentoRuta_MuestraResultadosYRetornaCero
+   Assert.Equal() Failure: Values differ
+   Expected: 572.03
+   Actual:   542.67
+  Failed AplicacionTests.CP17_ArchivoVacio_MuestraErrorYRetornaUno
+   Assert.Equal() Failure: Values differ
+   Expected: 1
+   Actual:   0
+
+Failed!  - Failed: 9, Passed: 11, Skipped: 0, Total: 20

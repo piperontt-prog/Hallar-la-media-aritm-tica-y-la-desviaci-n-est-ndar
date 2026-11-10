@@ -22,4 +22,8 @@
     <ProjectReference Include="..\..\src\Programa1.Estadistica\Programa1.Estadistica.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\datos\**" CopyToOutputDirectory="PreserveNewest" LinkBase="datos" />
+  </ItemGroup>
+
 </Project>

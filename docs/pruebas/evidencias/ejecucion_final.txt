@@ -1,0 +1,9 @@
+$ dotnet test tests/Programa1.Estadistica.Tests/Programa1.Estadistica.Tests.csproj
+  Determinando los proyectos que se van a restaurar...
+  Todos los proyectos están actualizados para la restauración.
+  Programa1.Estadistica -> C:\Users\piper\Downloads\PSP.01\src\Programa1.Estadistica\bin\Debug\net9.0\Programa1.Estadistica.dll
+  Programa1.Estadistica.Tests -> C:\Users\piper\Downloads\PSP.01\tests\Programa1.Estadistica.Tests\bin\Debug\net9.0\Programa1.Estadistica.Tests.dll
+Serie de pruebas para C:\Users\piper\Downloads\PSP.01\tests\Programa1.Estadistica.Tests\bin\Debug\net9.0\Programa1.Estadistica.Tests.dll (.NETCoreApp,Version=v9.0)
+1 archivos de prueba en total coincidieron con el patrón especificado.
+
+Correctas! - Con error:     0, Superado:    20, Omitido:     0, Total:    20, Duración: 1 s - Programa1.Estadistica.Tests.dll (net9.0)

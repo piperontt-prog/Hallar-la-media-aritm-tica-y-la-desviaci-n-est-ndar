@@ -39,19 +39,23 @@ public static class LectorArchivoNumeros
             lista.Agregar(valor);
         }
 
+        if (lista.EstaVacia)
+        {
+            throw new DatosInvalidosException("El archivo no contiene datos numéricos válidos.");
+        }
+
         return lista;
     }
 
     private static double Convertir(string texto, int numeroLinea)
     {
-        try
+        if (double.TryParse(texto, NumberStyles.Float, CultureInfo.InvariantCulture, out var valor)
+            && double.IsFinite(valor))
         {
-            return double.Parse(texto, CultureInfo.CurrentCulture);
+            return valor;
         }
-        catch (FormatException)
-        {
-            throw new DatosInvalidosException(
-                $"Línea {numeroLinea}: «{texto}» no es un número real. Use punto decimal (ej. 15.0).", numeroLinea);
-        }
+
+        throw new DatosInvalidosException(
+            $"Línea {numeroLinea}: «{texto}» no es un número real. Use punto decimal (ej. 15.0).", numeroLinea);
     }
 }

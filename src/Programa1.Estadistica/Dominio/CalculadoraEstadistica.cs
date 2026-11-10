@@ -13,6 +13,10 @@ public static class CalculadoraEstadistica
     public static double Media(ListaEnlazada datos)
     {
         ArgumentNullException.ThrowIfNull(datos);
+        if (datos.EstaVacia)
+        {
+            throw new DatosInsuficientesException("Se necesita al menos 1 dato para calcular la media.");
+        }
 
         double suma = 0;
         foreach (var valor in datos)
@@ -40,7 +44,7 @@ public static class CalculadoraEstadistica
             sumaCuadrados += Math.Pow(valor - media, 2);
         }
 
-        return Math.Sqrt(sumaCuadrados / datos.Cantidad);
+        return Math.Sqrt(sumaCuadrados / (datos.Cantidad - 1));
     }
 
     /// <summary>Consolida el cálculo estadístico completo.</summary>
